@@ -1,20 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
-import Application from "./view/Application";
-import Error404 from "./view/Error404";
+import App from "./Application";
 import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Application} />
-        {/* <Route exact path="/word/:id" /> */}
-        <Route component={Error404} />
-      </Switch>
-    </Router>
+    <App></App>
   </React.StrictMode>,
   document.getElementById("root")
 );

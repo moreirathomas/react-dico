@@ -1,1 +1,1 @@
-export type Indexable<T> = T & { index: number }
+export type Indexable<T> = T & { index: number };
