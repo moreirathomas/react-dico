@@ -1,25 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Provider } from "react-redux";
-import { store } from "./storage/store";
 import * as serviceWorker from "./serviceWorker";
 import Application from "./view/Application";
-import Counter from "./view/Counter";
 import Error404 from "./view/Error404";
 import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Application} />
-          <Route exact path="/counter" component={Counter} />
-          <Route component={Error404} />
-        </Switch>
-      </Router>
-    </Provider>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Application} />
+        {/* <Route exact path="/word/:id" /> */}
+        <Route component={Error404} />
+      </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );
