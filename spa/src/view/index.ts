@@ -1,4 +1,4 @@
 export { Dictionary } from "./Dictionary";
-export { Word } from "./Word";
+export { Detail } from "./Detail";
 export { Game } from "./Game";
 export { Error404 } from "./Error404";

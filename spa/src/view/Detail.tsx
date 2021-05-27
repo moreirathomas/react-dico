@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { WordsContext } from "../context/WordsContext";
+import { WordsContext } from "../Context";
 
-export const Word: React.FunctionComponent = () => {
+export const Detail: React.FunctionComponent = () => {
   const { id } = useParams<{ id: string }>();
 
   const { state } = useContext(WordsContext);
+
   return (
     <div>
       <h1>Page index {id}</h1>
