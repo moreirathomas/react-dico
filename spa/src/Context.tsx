@@ -1,12 +1,9 @@
 import React, { useReducer, createContext } from "react";
 import { remove, prepend, update } from "ramda";
-import wordsJSON from "./data/translations.json";
 import type { Word } from "./models/word";
-import { v4 as uuid } from 'uuid';
+import { initFromStorage, setWordsInStorage } from "./utils/storage";
 
-const initialState: Word[] = wordsJSON.map((word, index) =>
-  Object.assign(word, { id: uuid() })
-);
+const initialState = initFromStorage();
 
 // Default values of the context.
 export const WordsContext = createContext({
@@ -25,14 +22,19 @@ function reducer(state: Word[], action: WordAction): Word[] {
   // Using Ramda functional lib for funzies.
   switch (action.type) {
     case "add":
-      return prepend(action.word, state);
+      state = prepend(action.word, state);
+      break;
     case "delete":
-      return remove(getWordIndex(action.id), 1, state);
+      state = remove(getWordIndex(action.id), 1, state);
+      break;
     case "update":
-      return update(getWordIndex(action.id), action.word, state);
+      state = update(getWordIndex(action.id), action.word, state);
+      break;
     default:
-      return state;
+      break;
   }
+  setWordsInStorage(state);
+  return state;
 }
 
 export const WordsProvider: React.FunctionComponent = (props) => {
