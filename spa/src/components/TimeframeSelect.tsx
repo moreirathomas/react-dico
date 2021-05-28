@@ -22,7 +22,7 @@ export const TimeframeSelect: React.FunctionComponent<Props> = ({ setter }) => {
       <p>Filter</p>
       <button onClick={setFilterByMonth(1)}>One month</button>
       <button onClick={setFilterByMonth(6)}>Six months</button>
-      <button onClick={setFilterByMonth(2)}>One year</button>
+      <button onClick={setFilterByMonth(12)}>One year</button>
     </div>
   );
 };
