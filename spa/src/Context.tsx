@@ -2,9 +2,10 @@ import React, { useReducer, createContext } from "react";
 import { remove, prepend, update } from "ramda";
 import wordsJSON from "./data/translations.json";
 import type { Word } from "./models/word";
+import { v4 as uuid } from 'uuid';
 
 const initialState: Word[] = wordsJSON.map((word, index) =>
-  Object.assign(word, { id: index })
+  Object.assign(word, { id: uuid() })
 );
 
 // Default values of the context.
@@ -15,11 +16,11 @@ export const WordsContext = createContext({
 
 type WordAction =
   | { type: "add"; word: Word }
-  | { type: "delete"; id: number }
-  | { type: "update"; id: number; word: Word };
+  | { type: "delete"; id: string }
+  | { type: "update"; id: string; word: Word };
 
 function reducer(state: Word[], action: WordAction): Word[] {
-  const getWordIndex = (id: number): number => state.findIndex((word) => word.id === id);
+  const getWordIndex = (id: string): number => state.findIndex((word) => word.id === id);
 
   // Using Ramda functional lib for funzies.
   switch (action.type) {
