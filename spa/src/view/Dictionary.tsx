@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { WordsContext } from "../Context";
-import { Button, WordFilter, WordList } from "../components";
+import { Button, TimeframeSelect, WordList } from "../components";
 import type { Word } from "../models/word";
 
 interface Props {}
@@ -19,12 +19,10 @@ const MOCK_UP_WORD = () => ({
   id: Math.random(),
 });
 
-const MOCK_UP_FILTER_VALUE = () => Date.now();
-
 export const Dictionary: React.FunctionComponent<Props> = () => {
   const { state, update } = useContext(WordsContext);
 
-  const [activeFilter, setActiveFilter] = useState(MOCK_UP_FILTER_VALUE());
+  const [activeFilter, setActiveFilter] = useState(0);
   const [filteredWords, setFilteredWords] = useState<Word[]>([]);
 
   useEffect(() => {
@@ -37,7 +35,7 @@ export const Dictionary: React.FunctionComponent<Props> = () => {
 
   return (
     <div>
-      <WordFilter setter={setActiveFilter} />
+      <TimeframeSelect setter={setActiveFilter} />
       <Button action={addWord} text={"Add a word"}></Button>
       <WordList words={filteredWords} />
     </div>

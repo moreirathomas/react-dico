@@ -3,8 +3,8 @@ import { remove, prepend, update } from "ramda";
 import wordsJSON from "./data/translations.json";
 import type { Word } from "./models/word";
 
-const initialState: Word[] = wordsJSON.map((translation, index) =>
-  Object.assign(translation, { id: index })
+const initialState: Word[] = wordsJSON.map((word, index) =>
+  Object.assign(word, { id: index })
 );
 
 // Default values of the context.

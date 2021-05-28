@@ -1,4 +1,4 @@
 export { Button } from "./Button";
-export { WordFilter } from "./WordFilter";
+export { TimeframeSelect } from "./TimeframeSelect";
 export { WordItem } from "./WordItem";
 export { WordList } from "./WordList";
