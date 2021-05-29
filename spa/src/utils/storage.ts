@@ -6,7 +6,7 @@ const STORAGE_KEY = "local_words";
 
 const deserializeStorage = (rawJSON: string): Word[] => JSON.parse(rawJSON);
 
-const defaultWords = (): Word[] =>
+const getDefaultWords = (): Word[] =>
   wordsJSON.map((word) => Object.assign(word, { id: uuid() }));
 
 export function setWordsInStorage(words: Word[]): void {
@@ -16,7 +16,7 @@ export function setWordsInStorage(words: Word[]): void {
 export function initFromStorage(): Word[] {
   const storage = localStorage.getItem(STORAGE_KEY);
 
-  const deserializedWords = storage ? deserializeStorage(storage) : defaultWords();
+  const deserializedWords = storage ? deserializeStorage(storage) : getDefaultWords();
 
   if (!storage) {
     setWordsInStorage(deserializedWords);

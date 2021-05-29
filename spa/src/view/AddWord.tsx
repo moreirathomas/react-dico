@@ -5,11 +5,11 @@ import type { Word } from "../models/word";
 import { Button } from "../components";
 
 export const AddWord: React.FunctionComponent = () => {
-  const { update } = useContext(WordsContext);
+  const { mutation } = useContext(WordsContext);
 
   const addWord = () => {
     if (en === '') return;
-    update({ type: "add", word: generateWord(fr, en) });
+    mutation({ type: "add", word: generateWord(fr, en) });
   };
 
   let [fr, setFr] = useState('');

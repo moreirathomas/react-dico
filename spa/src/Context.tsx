@@ -8,7 +8,7 @@ const initialState = initFromStorage();
 // Default values of the context.
 export const WordsContext = createContext({
   state: initialState,
-  update: (() => {}) as React.Dispatch<WordAction>,
+  mutation: (() => {}) as React.Dispatch<WordAction>,
 });
 
 type WordAction =
@@ -22,26 +22,27 @@ function reducer(state: Word[], action: WordAction): Word[] {
   // Using Ramda functional lib for funzies.
   switch (action.type) {
     case "add":
-      state = prepend(action.word, state);
-      break;
+      return prepend(action.word, state);
     case "delete":
-      state = remove(getWordIndex(action.id), 1, state);
-      break;
+      return remove(getWordIndex(action.id), 1, state);
     case "update":
-      state = update(getWordIndex(action.id), action.word, state);
-      break;
+      return update(getWordIndex(action.id), action.word, state);
     default:
-      break;
+      return state;
   }
-  setWordsInStorage(state);
-  return state;
+}
+
+function reducerWithStorageMutation(state: Word[], action: WordAction): Word[] {
+  const newState = reducer(state, action);
+  setWordsInStorage(newState);
+  return newState;
 }
 
 export const WordsProvider: React.FunctionComponent = (props) => {
-  const [state, update] = useReducer(reducer, initialState);
+  const [state, mutation] = useReducer(reducerWithStorageMutation, initialState);
 
   return (
-    <WordsContext.Provider value={{ state, update }}>
+    <WordsContext.Provider value={{ state, mutation }}>
       {props.children}
     </WordsContext.Provider>
   );
