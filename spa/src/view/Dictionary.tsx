@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { WordsContext } from "../Context";
 import { TimeframeSelect, WordList } from "../components";
 import type { Word } from "../models/word";
-import { Link } from "react-router-dom";
 
 interface Props {}
 
@@ -26,7 +26,7 @@ export const Dictionary: React.FunctionComponent<Props> = () => {
   return (
     <div>
       <TimeframeSelect setter={setActiveFilter} />
-      <Link to={`/add-word`}>Add a new word</Link>
+      <Link to={"/new"}>Add a new word</Link>
       <WordList words={filteredWords} />
     </div>
   );

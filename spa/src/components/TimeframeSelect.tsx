@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction } from "react";
+import { Button } from "./Button";
 
 interface Props {
   setter: Dispatch<SetStateAction<number>>;
@@ -20,9 +21,9 @@ export const TimeframeSelect: React.FunctionComponent<Props> = ({ setter }) => {
   return (
     <div>
       <p>Filter</p>
-      <button onClick={setFilterByMonth(1)}>One month</button>
-      <button onClick={setFilterByMonth(6)}>Six months</button>
-      <button onClick={setFilterByMonth(12)}>One year</button>
+      <Button action={setFilterByMonth(1)}>One month</Button>
+      <Button action={setFilterByMonth(6)}>Six month</Button>
+      <Button action={setFilterByMonth(12)}>One year</Button>
     </div>
   );
 };
