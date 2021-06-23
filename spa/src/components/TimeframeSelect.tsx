@@ -19,7 +19,7 @@ export const TimeframeSelect: React.FunctionComponent<Props> = ({ setter }) => {
   const setFilterByMonth = (nb: number) => () => setter(getOlderMonthTimestamp(nb));
 
   return (
-    <div>
+    <div data-e2e="timeframe">
       <h3>Mots renseignés</h3>
       <Button action={setFilterByMonth(1)}>le mois dernier</Button>
       <Button action={setFilterByMonth(6)}>les 6 mois derniers</Button>

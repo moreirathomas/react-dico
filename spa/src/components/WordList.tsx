@@ -8,7 +8,7 @@ interface Props {
 
 export const WordList: React.FunctionComponent<Props> = ({ words }) => {
   return (
-    <ul>
+    <ul data-e2e="dict">
       {words.map((word, index) => (
         <WordItem key={index} en={word.en} fr={word.fr} id={word.id} />
       ))}
