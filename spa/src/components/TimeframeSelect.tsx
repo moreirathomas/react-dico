@@ -20,10 +20,10 @@ export const TimeframeSelect: React.FunctionComponent<Props> = ({ setter }) => {
 
   return (
     <div>
-      <p>Filter</p>
-      <Button action={setFilterByMonth(1)}>One month</Button>
-      <Button action={setFilterByMonth(6)}>Six month</Button>
-      <Button action={setFilterByMonth(12)}>One year</Button>
+      <h3>Mots renseignés</h3>
+      <Button action={setFilterByMonth(1)}>le mois dernier</Button>
+      <Button action={setFilterByMonth(6)}>les 6 mois derniers</Button>
+      <Button action={setFilterByMonth(12)}>l'année dernière</Button>
     </div>
   );
 };

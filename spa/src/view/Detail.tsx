@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { WordsContext } from "../Context";
-import { Button } from "../components";
+import { Button, Header } from "../components";
 import type { Word } from "../models/word";
 
 /**
@@ -30,11 +30,13 @@ export const Detail: React.FunctionComponent = () => {
 
   return (
     <div>
-      <h2>{word.fr}</h2>
-      <h2>{word.en}</h2>
+      <Header>Mot</Header>
+      <h2>🇫🇷 {word.fr}</h2>
+      <h2>🇺🇸 {word.en}</h2>
       <p>Ajouté le {word.date}</p>
       <Button action={deleteWord}>Supprimer</Button>
-      <pre>id: {id}</pre>
+      <br />
+      <code>id: {id}</code>
     </div>
   );
 };

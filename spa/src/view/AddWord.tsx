@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 import { WordsContext } from "../Context";
-import { Button } from "../components";
+import { Button, Header } from "../components";
 import type { Word } from "../models/word";
-import { useHistory } from "react-router-dom";
 
 /**
  * @returns A word given two translations. At most one translation can equal empty string `""`.
@@ -28,6 +28,7 @@ export const AddWord: React.FunctionComponent = () => {
 
   return (
     <div>
+      <Header>Ajout</Header>
       <label htmlFor="en">Anglais</label>
       <input name="en" onChange={(event) => setEn(event.target.value)} type="text" />
       <label htmlFor="fr">Francais</label>
