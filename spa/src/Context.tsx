@@ -14,7 +14,7 @@ export const WordsContext = createContext({
 type WordAction =
   | { type: "add"; word: Word }
   | { type: "delete"; id: string }
-  | { type: "update"; id: string; word: Word };
+  | { type: "edit"; id: string; word: Word };
 
 function reducer(state: Word[], action: WordAction): Word[] {
   const getWordIndex = (id: string): number => state.findIndex((word) => word.id === id);
@@ -25,7 +25,7 @@ function reducer(state: Word[], action: WordAction): Word[] {
       return prepend(action.word, state);
     case "delete":
       return remove(getWordIndex(action.id), 1, state);
-    case "update":
+    case "edit":
       return update(getWordIndex(action.id), action.word, state);
     default:
       return state;

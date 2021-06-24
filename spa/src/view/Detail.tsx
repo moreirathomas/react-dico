@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
+import { v4 as uuid } from "uuid";
 import { WordsContext } from "../Context";
-import { Button, Header } from "../components";
+import { Button, Header, WordEdition } from "../components";
 import type { Word } from "../models/word";
 
 /**
@@ -20,6 +21,7 @@ export const Detail: React.FunctionComponent = () => {
   const { state, mutation } = useContext(WordsContext);
   const { id } = useParams<{ id: string }>();
   const history = useHistory();
+  const [isEdition, setIsEdition] = useState(false);
 
   const word = getWordById(id, state);
 
@@ -28,15 +30,31 @@ export const Detail: React.FunctionComponent = () => {
     history.push("/");
   };
 
+  const editWord = (word: Word) => {
+    mutation({ type: "edit", id: word.id, word });
+  };
+
   return (
     <div>
       <Header>Mot</Header>
-      <h2>🇫🇷 {word.fr}</h2>
-      <h2>🇺🇸 {word.en}</h2>
-      <p>Ajouté le {word.date}</p>
+
+      {isEdition ? (
+        <WordEdition word={word} action={editWord} toggle={() => setIsEdition(false)} />
+      ) : (
+        <div>
+          <p>
+            <span>🇺🇸</span> {word.en}
+          </p>
+          <p>
+            <span>🇫🇷</span> {word.fr}
+          </p>
+          <Button action={() => setIsEdition(true)}>Edit</Button>
+        </div>
+      )}
+
       <Button action={deleteWord}>Supprimer</Button>
-      <br />
-      <code>id: {id}</code>
+      <p>Ajouté le {word.date}</p>
+      <code>id: {word.id}</code>
     </div>
   );
 };
