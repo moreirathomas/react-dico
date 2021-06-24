@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { WordsContext } from "../Context";
+import { WordsContext } from "../contexts/WordsContext";
+import { GameProvider } from "../contexts/GameContext";
 import { GameLogic, Header, TimeframeRenderer } from "../components";
-import { GameProvider } from "../GameContext";
 
 export const Game: React.FunctionComponent = () => {
   const { state } = useContext(WordsContext);

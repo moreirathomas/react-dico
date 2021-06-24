@@ -1,7 +1,7 @@
 import React, { useReducer, createContext } from "react";
 import { remove, prepend, update } from "ramda";
-import type { Word } from "./models/word";
-import { initFromStorage, setWordsInStorage } from "./utils/storage";
+import type { Word } from "../models/word";
+import { initFromStorage, setWordsInStorage } from "../utils/storage";
 
 const initialState = initFromStorage();
 

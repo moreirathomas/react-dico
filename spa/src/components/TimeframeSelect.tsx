@@ -16,14 +16,14 @@ function getOlderMonthTimestamp(months: number): number {
 }
 
 export const TimeframeSelect: React.FunctionComponent<Props> = ({ setter }) => {
-  const setFilterByMonth = (nb: number) => () => setter(getOlderMonthTimestamp(nb));
+  const selectLessThanMonth = (nb: number) => () => setter(getOlderMonthTimestamp(nb));
 
   return (
     <div data-e2e="timeframe">
       <h3>Mots renseignés</h3>
-      <Button action={setFilterByMonth(1)}>le mois dernier</Button>
-      <Button action={setFilterByMonth(6)}>les 6 mois derniers</Button>
-      <Button action={setFilterByMonth(12)}>l'année dernière</Button>
+      <Button action={selectLessThanMonth(1)}>le mois dernier</Button>
+      <Button action={selectLessThanMonth(6)}>les 6 mois derniers</Button>
+      <Button action={selectLessThanMonth(12)}>l'année dernière</Button>
     </div>
   );
 };

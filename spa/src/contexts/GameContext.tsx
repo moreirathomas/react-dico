@@ -1,7 +1,7 @@
 import React, { useReducer, createContext, useEffect } from "react";
 import { move } from "ramda";
-import { Game, randomizeLang } from "./models/game";
-import type { Word } from "./models/word";
+import { Game, randomizeLang } from "../models/game";
+import type { Word } from "../models/word";
 
 function initFromWordsContext(words: Word[]): Game {
   return {

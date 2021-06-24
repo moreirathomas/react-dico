@@ -14,6 +14,10 @@ function filterMoreRecentThan<T extends { date: number }>(since: number, element
   return elements.filter((el) => el.date > since);
 }
 
+/**
+ * TimeframeRenderer wraps its child component,
+ * passing it a filtered array of words as props.
+ */
 export const TimeframeRenderer: React.FunctionComponent<Props> = ({
   words,
   children,

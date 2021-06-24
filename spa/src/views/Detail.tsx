@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { v4 as uuid } from "uuid";
-import { WordsContext } from "../Context";
+import { WordsContext } from "../contexts/WordsContext";
 import { Button, Header, WordEdition } from "../components";
 import type { Word } from "../models/word";
 
@@ -10,7 +9,7 @@ import type { Word } from "../models/word";
  */
 function getWordById(id: string, words: Word[]): Word {
   const word = words.find((word) => word.id === id);
-  // @TODO return undefined and create a middleware to route toward 404 page on such errors.
+  // TODO return undefined and create a middleware to route toward 404 page on such errors.
   if (!word) {
     throw new Error(`word not found (id: ${id})`);
   }

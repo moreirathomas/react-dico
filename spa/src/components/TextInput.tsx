@@ -14,7 +14,7 @@ export const TextInput: React.FunctionComponent<Props> = ({ value, label, setter
         name={label}
         value={value}
         onChange={(event) => setter(event.target.value)}
-        type={"text"}
+        type="text"
       />
     </div>
   );

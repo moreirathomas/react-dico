@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { WordsContext } from "../Context";
+import { WordsContext } from "../contexts/WordsContext";
 import { Header, TimeframeRenderer, WordList } from "../components";
 
 export const Dictionary: React.FunctionComponent = () => {

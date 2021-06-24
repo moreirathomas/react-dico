@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { v4 as uuid } from "uuid";
-import { WordsContext } from "../Context";
+import { WordsContext } from "../contexts/WordsContext";
 import { Header, WordAddition } from "../components";
 import type { Word } from "../models/word";
 
