@@ -1,7 +1,7 @@
 export { Button } from "./Button";
 export { TextInput } from "./TextInput";
 export { TimeframeSelect } from "./TimeframeSelect";
-
+export { TimeframeRenderer } from "./TimeframeRenderer";
 export { Header } from "./Header";
 
 export { WordItem } from "./WordItem";
