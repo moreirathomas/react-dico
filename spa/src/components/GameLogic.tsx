@@ -21,11 +21,13 @@ export const GameLogic: React.FunctionComponent = () => {
         key={game.word.id}
       />
 
-      <Button action={handleSuccess}>Correct</Button>
-      <Button action={handleFailure}>Incorrect</Button>
+      <div data-e2e="answer">
+        <Button action={handleSuccess}>Correct</Button>
+        <Button action={handleFailure}>Incorrect</Button>
+      </div>
 
       <br />
-      <code>score: {game.score}</code>
+      <code data-e2e="score-value">score: {game.score}</code>
     </div>
   );
 };

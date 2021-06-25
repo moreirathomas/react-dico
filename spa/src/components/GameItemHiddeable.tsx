@@ -10,11 +10,11 @@ export const GameItemHiddeable: React.FunctionComponent<Props> = ({ emoji, text 
   const [isHidden, setIsHidden] = useState(true);
 
   return (
-    <div>
+    <div data-e2e="reveal">
       {isHidden ? (
         <Button action={() => setIsHidden(false)}>Reveal</Button>
       ) : (
-        <p>
+        <p data-e2e="revealed-word">
           {emoji} {text}
         </p>
       )}
