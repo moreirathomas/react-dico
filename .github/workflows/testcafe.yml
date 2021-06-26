@@ -1,0 +1,16 @@
+name: End-to-End Tests
+on: [push]
+
+jobs:
+  test:
+    name: Run TestCafe Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch the repository
+        uses: actions/checkout@v1
+      - name: Change directory to /e2e
+        run: cd e2e
+      - name: Install TestCafe from 'npm' and Run Tests
+        uses: DevExpress/testcafe-action@latest
+        with:
+          args: "chrome e2e/features"

@@ -25,7 +25,7 @@ export const TimeframeRenderer: React.FunctionComponent<Props> = ({
   const [activeFilter, setActiveFilter] = useState(0);
 
   return (
-    <div data-e2e="timeframe">
+    <div>
       <TimeframeSelect setter={setActiveFilter} />
       {children(filterMoreRecentThan(activeFilter, words))}
     </div>
